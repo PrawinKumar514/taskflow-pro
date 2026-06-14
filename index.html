@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TaskFlow Pro | Advanced To-Do Manager</title>
+  <!-- Google Fonts & Font Awesome (icons only, no framework) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- main application wrapper -->
+  <div class="app-container" role="main">
+    <header class="app-header">
+      <div class="logo-area">
+        <i class="fas fa-tasks logo-icon"></i>
+        <h1>TaskFlow Pro</h1>
+        <span class="version-badge">v2.0</span>
+      </div>
+      <button class="theme-toggle" id="themeToggleBtn" aria-label="Dark/Light mode toggle" title="Switch theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </header>
+
+    <!-- stats + quick actions row -->
+    <div class="stats-bar">
+      <div class="task-counter" id="taskCounter">
+        <i class="fas fa-clipboard-list"></i>
+        <span id="activeTasksCount">0</span> active tasks
+      </div>
+      <div class="quick-actions">
+        <button id="markAllBtn" class="btn-secondary" aria-label="Mark all tasks as completed">
+          <i class="fas fa-check-double"></i> Mark all
+        </button>
+        <button id="clearCompletedBtn" class="btn-outline" aria-label="Remove all completed tasks">
+          <i class="fas fa-trash-alt"></i> Clear completed
+        </button>
+      </div>
+    </div>
+
+    <!-- add task input area -->
+    <div class="add-task-section">
+      <div class="input-group">
+        <input type="text" id="taskTitleInput" placeholder="Write a new task ..." aria-label="New task title" autocomplete="off">
+        <button id="addTaskBtn" class="btn-primary" aria-label="Create task">
+          <i class="fas fa-plus"></i> Add task
+        </button>
+      </div>
+    </div>
+
+    <!-- filter + search bar -->
+    <div class="filter-bar">
+      <div class="filter-buttons" role="group" aria-label="Task filters">
+        <button data-filter="all" class="filter-btn active" id="filterAll">All Tasks</button>
+        <button data-filter="active" class="filter-btn" id="filterActive">Active</button>
+        <button data-filter="completed" class="filter-btn" id="filterCompleted">Completed</button>
+      </div>
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search tasks..." aria-label="Search tasks by title">
+        <button id="clearSearchBtn" class="clear-search" aria-label="Clear search"><i class="fas fa-times-circle"></i></button>
+      </div>
+    </div>
+
+    <!-- tasks dynamic container (event delegation) -->
+    <div id="tasksContainer" class="tasks-grid" role="list" aria-label="Task list"></div>
+
+    <!-- Empty state illustration (built inside JS fallback, but included structure) -->
+  </div>
+
+  <!-- EDIT MODAL (Accessible, glassmorphism) -->
+  <div id="editModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fas fa-pen-alt"></i> Edit task</h3>
+        <button class="modal-close" id="closeModalBtn" aria-label="Close edit dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label for="editTaskInput" class="visually-hidden">Task title</label>
+        <input type="text" id="editTaskInput" placeholder="Update task title" autocomplete="off">
+      </div>
+      <div class="modal-footer">
+        <button id="modalCancelBtn" class="btn-secondary-modal">Cancel</button>
+        <button id="modalSaveBtn" class="btn-primary-modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
