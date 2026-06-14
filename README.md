@@ -193,17 +193,17 @@ Features:
 # 📂 Project Structure
 
 ```text
-taskflow-pro/
-│
-├── index.html          # Main application page
+todo-app/
 │
 ├── css/
-│   └── style.css       # Styling and responsive design
+│   └── style.css
 │
 ├── js/
-│   └── script.js       # Application logic and state management
+│   └── script.js
 │
-└── README.md           # Project documentation
+├── index.html
+│
+└── README.md
 ```
 
 ---
@@ -297,7 +297,7 @@ All data will be automatically saved using Local Storage.
 
 ---
 
-# 🎯 Internship Requirements Covered
+# 🎯 Features Covered
 
 ## ✅ Full CRUD Operations
 
